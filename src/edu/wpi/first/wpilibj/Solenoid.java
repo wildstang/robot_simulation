@@ -7,7 +7,7 @@
 
 package edu.wpi.first.wpilibj;
 
-import com.wildstangs.simulation.solenoids.SolenoidContainer;
+import org.wildstang.simulation.solenoids.SolenoidContainer;
 
 
      /**

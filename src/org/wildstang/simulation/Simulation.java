@@ -72,10 +72,9 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
     TeleopPeriodicTask teleopTask;
     DisabledPeriodicTask disabledTask;
     SequentialTaskExecutor practiceModeExecutor;
+    static RobotTemplate robot;
 
-    static ProfilingTimer durationTimer = new ProfilingTimer("Periodic method duration", 50);
-    static ProfilingTimer periodTimer = new ProfilingTimer("Periodic method period", 50);
-
+    
     public Simulation() {
         timer = new Timer();
 
@@ -151,6 +150,7 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
         modeSwitcher.pack();
         modeSwitcher.setLocation(new Point(600, 650));
         modeSwitcher.setVisible(true);
+        robot = new RobotTemplate();
     }
 
     public static Simulation getInstance() {
@@ -170,18 +170,8 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
         // Set the property for the JInput library path
         System.setProperty("net.java.games.input.librarypath", System.getProperty("user.dir") + File.separator + "lib");
 
-        // Start the log viewer.
-        (new Thread(new LogViewer())).start();
-        FileLogger.getFileLogger().startLogger();
-
-        FrameworkAbstraction.robotInit("/Config/ws_config.txt");
-
-        Logger logger = Logger.getLogger();
-
-        logger.always(c, "sim_startup", "Simulation starting.");
-        FileLogger.getFileLogger().logData("Sim Started");
-
-        logger.always(c, "sim_startup", "Simulation init done.");
+  
+        robot.robotInit();
 
         getInstance().startDisabled();
         
@@ -219,12 +209,12 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
             switch (state) {
                 case AUTON:
-                    FrameworkAbstraction.autonomousInit();
+                    robot.autonomousInit();
                     SensorSimulationContainer.getInstance().init();
                     startAuton();
                     break;
                 case TELEOP:
-                    FrameworkAbstraction.teleopInit();
+                    robot.teleopInit();
                     SensorSimulationContainer.getInstance().init();
                     startTeleop();
                     break;
@@ -257,7 +247,7 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
             }
 
             isEnabled = false;
-            FrameworkAbstraction.disabledInit();
+            robot.disabledInit();
             startDisabled();
         } else if (source == autonLockIn) {
             System.out.println("Simulated lockin switch: " + autonLockIn.isSelected());
@@ -284,7 +274,7 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
             practiceButton.setEnabled(true);
 
             isEnabled = false;
-            FrameworkAbstraction.disabledInit();
+            robot.disabledInit();
             startDisabled();
         }
     }
@@ -330,12 +320,8 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
         @Override
         public void run() {
-            periodTimer.endTimingSection();
-            periodTimer.startTimingSection();
-            durationTimer.startTimingSection();
-
-            InputManager.getInstance().updateSensorData();
-            FrameworkAbstraction.teleopPeriodic();
+            //any updates that need to run.
+            robot.teleopPeriodic();
             SolenoidContainer.getInstance().update();
             SensorSimulationContainer.getInstance().update();
         }
@@ -345,12 +331,8 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
         @Override
         public void run() {
-            periodTimer.endTimingSection();
-            periodTimer.startTimingSection();
-            durationTimer.startTimingSection();
-
-            InputManager.getInstance().updateSensorData();
-            FrameworkAbstraction.autonomousPeriodic();
+        	//any updates that need to run.
+            robot.autonomousPeriodic();
             SolenoidContainer.getInstance().update();
             SensorSimulationContainer.getInstance().update();
         }
@@ -360,11 +342,9 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
         @Override
         public void run() {
-            periodTimer.endTimingSection();
-            periodTimer.startTimingSection();
-            durationTimer.startTimingSection();
 
-            FrameworkAbstraction.disabledPeriodic();
+
+            robot.disabledPeriodic();
         }
     }
 
@@ -372,7 +352,7 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
         @Override
         public void run() {
-            FrameworkAbstraction.disabledInit();
+            robot.disabledInit();
         }
     }
 
@@ -380,7 +360,7 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
         @Override
         public void run() {
-            FrameworkAbstraction.autonomousInit();
+            robot.autonomousInit();
         }
     }
 
@@ -388,7 +368,12 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
 
         @Override
         public void run() {
-            FrameworkAbstraction.teleopInit();
+            robot.teleopInit();
         }
+    }
+    
+    public RobotTemplate getRobotTemplate()
+    {
+    	return robot;
     }
 }

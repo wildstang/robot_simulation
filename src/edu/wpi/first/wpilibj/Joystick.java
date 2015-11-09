@@ -4,10 +4,10 @@
  */
 package edu.wpi.first.wpilibj;
 
-import com.wildstangs.inputmanager.inputs.joystick.IHardwareJoystick;
-import com.wildstangs.joystick.OnscreenJoystick;
-import com.wildstangs.inputmanager.inputs.joystick.IJoystick;
-import com.wildstangs.joystick.HardwareJoystick;
+import org.wildstang.inputmanager.inputs.joystick.IHardwareJoystick;
+import org.wildstang.joystick.OnscreenJoystick;
+import org.wildstang.inputmanager.inputs.joystick.IJoystick;
+import org.wildstang.joystick.HardwareJoystick;
 
 public class Joystick implements IJoystick, IHardwareJoystick {
 

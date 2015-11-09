@@ -6,13 +6,11 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj;
 
-import edu.wpi.first.wpilibj.parsing.IInputOutput;
-
 /**
  * Provide access to the network communication data to / from the Driver
  * Station.
  */
-public class DriverStation implements IInputOutput {
+public class DriverStation {
 
     public static class Alliance {
 
@@ -311,71 +309,7 @@ public class DriverStation implements IInputOutput {
         return 111;
     }
 
-    /**
-     * Sets the dashboard packer to use for sending high priority user data to a
-     * dashboard receiver. This can idle or restore the default packer.
-     * (Initializing SmartDashboard sets the high priority packer in use, so
-     * beware that the default packer will then be idle. You can restore the
-     * default high priority packer by calling
-     * {@code setDashboardPackerToUseHigh(getDashboardPackerHigh())}.)
-     *
-     * @param dashboard any kind of IDashboard object
-     */
-    public void setDashboardPackerToUseHigh(IDashboard dashboard) {
-    }
-
-    /**
-     * Gets the default dashboard packer for sending high priority user data to
-     * a dashboard receiver. This instance stays around even after a call to
-     * {@link #setDashboardPackerToUseHigh} changes which packer is in use.
-     *
-     * @return the default Dashboard object; it may be idle
-     */
-    public Dashboard getDashboardPackerHigh() {
-        return null;
-    }
-
-    /**
-     * Gets the dashboard packer that's currently in use for sending high
-     * priority user data to a dashboard receiver. This can be any kind of
-     * IDashboard.
-     *
-     * @return the current IDashboard object
-     */
-    public IDashboard getDashboardPackerInUseHigh() {
-        return null;
-    }
-
-    /**
-     * Sets the dashboard packer to use for sending low priority user data to a
-     * dashboard receiver. This can idle or restore the default packer.
-     *
-     * @param dashboard any kind of IDashboard object
-     */
-    public void setDashboardPackerToUseLow(IDashboard dashboard) {
-    }
-
-    /**
-     * Gets the default dashboard packer for sending low priority user data to a
-     * dashboard receiver. This instance stays around even after a call to
-     * {@link #setDashboardPackerToUseLow} changes which packer is in use.
-     *
-     * @return the default Dashboard object; it may be idle
-     */
-    public Dashboard getDashboardPackerLow() {
-        return null;
-    }
-
-    /**
-     * Gets the dashboard packer that's currently in use for sending low
-     * priority user data to a dashboard receiver. This can be any kind of
-     * IDashboard.
-     *
-     * @return the current IDashboard object
-     */
-    public IDashboard getDashboardPackerInUseLow() {
-        return null;
-    }
+    
 
     /**
      * Gets the status data monitor
@@ -403,16 +337,6 @@ public class DriverStation implements IInputOutput {
      */
     public boolean isFMSAttached() {
         return false;
-    }
-
-    /**
-     * Get the interface to the enhanced IO of the new driver station.
-     *
-     * @return An enhanced IO object for the advanced features of the driver
-     * station.
-     */
-    public DriverStationEnhancedIO getEnhancedIO() {
-        return null;
     }
 
     /**

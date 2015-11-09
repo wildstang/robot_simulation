@@ -16,8 +16,8 @@
  */
 package org.wildstang.joystick;
 
-import com.wildstangs.inputmanager.inputs.joystick.IJoystick;
-import com.wildstangs.inputmanager.inputs.joystick.JoystickAxisEnum;
+import org.wildstang.inputmanager.inputs.joystick.IJoystick;
+import org.wildstang.inputmanager.inputs.joystick.JoystickAxisEnum;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
 import javax.swing.JFrame;
 import javax.swing.JPanel;

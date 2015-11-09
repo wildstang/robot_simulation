@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 public class Graph extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener
 {
 
-    private int width, height, xAxisLoc, yAxisLoc, preX, preY, mouseX, mouseY;
+    private int width, height, xAxisLoc, yAxisLoc, preX, preY;
     private int yStart, yEnd;
     private int scale;
     private double[][] points =

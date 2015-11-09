@@ -7,8 +7,8 @@
 
 package edu.wpi.first.wpilibj;
 
-import com.wildstangs.simulation.analoginput.AnalogInputContainer;
-import com.wildstangs.simulation.analoginput.AnalogInputSimulation;
+import org.wildstang.simulation.analoginput.AnalogInputContainer;
+import org.wildstang.simulation.analoginput.AnalogInputSimulation;
 
 /**
  * Class to read a digital input.

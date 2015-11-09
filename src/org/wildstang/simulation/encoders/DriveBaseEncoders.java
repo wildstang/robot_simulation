@@ -1,11 +1,11 @@
 
 package org.wildstang.simulation.encoders;
 
-import com.wildstangs.outputmanager.base.IOutputEnum;
-import com.wildstangs.outputmanager.base.OutputManager;
-import com.wildstangs.simulation.sensorsimulation.base.ISensorSimulation;
-import com.wildstangs.subsystems.DriveBase;
-import com.wildstangs.subsystems.base.SubsystemContainer;
+import org.wildstang.outputmanager.base.IOutputEnum;
+import org.wildstang.framework.io.OutputManager;
+import org.wildstang.simulation.sensorsimulation.base.ISensorSimulation;
+import org.wildstang.yearly.subsystems.DriveBase;
+import org.wildstang.yearly.subsystems.base.SubsystemContainer;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 

@@ -6,9 +6,9 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj;
 
-import com.wildstangs.simulation.digitalinputs.DigitalInputContainer;
-import com.wildstangs.simulation.digitalinputs.DigitalInputEnum;
-import com.wildstangs.simulation.digitalinputs.DigitalInputSimulation;
+import org.wildstang.simulation.digitalinputs.DigitalInputContainer;
+import org.wildstang.simulation.digitalinputs.DigitalInputEnum;
+import org.wildstang.simulation.digitalinputs.DigitalInputSimulation;
 
 
 /**
