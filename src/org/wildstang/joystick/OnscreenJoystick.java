@@ -16,8 +16,7 @@
  */
 package org.wildstang.joystick;
 
-import org.wildstang.inputmanager.inputs.joystick.IJoystick;
-import org.wildstang.inputmanager.inputs.joystick.JoystickAxisEnum;
+import org.wildstang.hardware.JoystickConstants;
 import edu.wpi.first.wpilibj.Joystick.AxisType;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -117,11 +116,11 @@ public class OnscreenJoystick implements KeyListener, IJoystick {
     
     public double getRawAxis(int axisEnum) {
         switch(axisEnum) {
-            case JoystickAxisEnum.LEFT_JOYSTICK_X:
+            case JoystickConstants.LEFT_JOYSTICK_X:
                 return getX();
-            case JoystickAxisEnum.LEFT_JOYSTICK_Y:
+            case JoystickConstants.LEFT_JOYSTICK_Y:
                 return getY();
-            case JoystickAxisEnum.RIGHT_JOYSTICK_X:
+            case JoystickConstants.RIGHT_JOYSTICK_X:
                 return getZ();
             default:
                 return 0;

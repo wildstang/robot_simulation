@@ -1,13 +1,12 @@
 package org.wildstang.simulation.digitalinputs;
 
-import org.wildstang.inputmanager.base.IInputEnum;
 
 /**
  *  Enum types used for the Driver Joystick class.  
  * 
  * @author chadschmidt
  */
-public class DigitalInputEnum implements IInputEnum {
+public class DigitalInputEnum{
     
 
 

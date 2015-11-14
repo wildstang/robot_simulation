@@ -4,12 +4,13 @@
  */
 package edu.wpi.first.wpilibj;
 
-import org.wildstang.inputmanager.inputs.joystick.IHardwareJoystick;
+import org.wildstang.joystick.IJoystick;
+import org.wildstang.joystick.IHardwareJoystick;
 import org.wildstang.joystick.OnscreenJoystick;
-import org.wildstang.inputmanager.inputs.joystick.IJoystick;
 import org.wildstang.joystick.HardwareJoystick;
 
-public class Joystick implements IJoystick, IHardwareJoystick {
+
+public class Joystick {
 
     IJoystick joystick;
     boolean isHardwareJoystick;
@@ -57,7 +58,6 @@ public class Joystick implements IJoystick, IHardwareJoystick {
         return joystick.getRawAxis(axisEnum);
     }
 
-    @Override
     public void pullData() {
         if (joystick instanceof IHardwareJoystick) {
             ((IHardwareJoystick) joystick).pullData();

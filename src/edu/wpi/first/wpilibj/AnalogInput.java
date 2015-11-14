@@ -17,7 +17,7 @@ import org.wildstang.simulation.analoginput.AnalogInputSimulation;
  * allocate digital inputs and outputs as required. This class is only for devices like switches
  * etc. that aren't implemented anywhere else.
  */
-public class AnalogChannel {
+public class AnalogInput {
 
     private int mChannel;
     protected AnalogInputSimulation input = null;
@@ -37,7 +37,7 @@ public class AnalogChannel {
      * Creates a digital input given a channel and uses the default module.
      * @param channel the port for the digital input
      */
-    public AnalogChannel(int channel) {
+    public AnalogInput(int channel) {
         initDigitalInput(1, channel);
     }
 
@@ -47,7 +47,7 @@ public class AnalogChannel {
      * @param moduleNumber The number of the digital module to use for this input 
      * @param channel the port for the digital input
      */
-    public AnalogChannel(int moduleNumber, int channel) {
+    public AnalogInput(int moduleNumber, int channel) {
         initDigitalInput(moduleNumber, channel);
     }
 

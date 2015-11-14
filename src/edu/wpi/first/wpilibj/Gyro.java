@@ -33,7 +33,7 @@ public class Gyro {
     static final double kSamplesPerSecond = 50.0;
     static final double kCalibrationSampleTime = 5.0;
     static final double kDefaultVoltsPerDegreePerSecond = 0.007;
-    AnalogChannel m_analog;
+    AnalogInput m_analog;
     boolean m_channelAllocated;
     private double angle = 0.0;
 
@@ -55,7 +55,7 @@ public class Gyro {
      * @param channel The analog channel the gyro is connected to.
      */
     public Gyro(int slot, int channel) {
-        m_analog = new AnalogChannel(slot, channel);
+        m_analog = new AnalogInput(slot, channel);
         m_channelAllocated = true;
         initGyro();
     }
@@ -68,7 +68,7 @@ public class Gyro {
      * @param channel The analog channel the gyro is connected to.
      */
     public Gyro(int channel) {
-        m_analog = new AnalogChannel(channel);
+        m_analog = new AnalogInput(channel);
         m_channelAllocated = true;
         initGyro();
     }
@@ -79,7 +79,7 @@ public class Gyro {
      * is no reference counting when an AnalogChannel is passed to the gyro.
      * @param channel The AnalogChannel object that the gyro is connected to.
      */
-    public Gyro(AnalogChannel channel) {
+    public Gyro(AnalogInput channel) {
         m_analog = channel;
         if (m_analog == null) {
             System.err.println("Analog channel supplied to Gyro constructor is null");

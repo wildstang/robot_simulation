@@ -1,8 +1,8 @@
 package org.wildstang.simulation.sensorsimulation.base;
 
 import java.util.ArrayList;
-import org.wildstang.simulation.gyro.GyroSimulation;
-import org.wildstang.simulation.encoders.DriveBaseEncoders;
+//import org.wildstang.simulation.gyro.GyroSimulation;
+//import org.wildstang.simulation.encoders.DriveBaseEncoders;
 /**
  *
  * @author Nathan
@@ -39,7 +39,7 @@ public class SensorSimulationContainer {
      * instantiated as well as placed in the subsystem container.
      */
     protected SensorSimulationContainer() {
-      sensorSimulation.add(new GyroSimulation());
-      sensorSimulation.add(new DriveBaseEncoders());
+      //sensorSimulation.add(new GyroSimulation());
+      //sensorSimulation.add(new DriveBaseEncoders());
     }
 }
