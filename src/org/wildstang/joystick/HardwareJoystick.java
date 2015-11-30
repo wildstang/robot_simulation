@@ -70,10 +70,14 @@ public class HardwareJoystick implements IHardwareJoystick, IJoystick{
         for (int i = 0; i < buttonStates.length; i++) {
             buttonStates[i] = controller.isButtonPressed(i);
         }
-        rightJoystickY = controller.getRZAxisValue();
-        rightJoystickX = controller.getZAxisValue();
-        leftJoystickY = controller.getYAxisValue();
-        leftJoystickX = controller.getXAxisValue();
+        rightJoystickX = controller.getRZAxisValue(); /* Done */
+        
+        leftJoystickY = controller.getZAxisValue();
+        
+        leftJoystickX = controller.getYAxisValue(); /* done */
+        
+        rightJoystickY = controller.getXAxisValue(); /* done */
+        
 
         dPadX = (int) controller.getPovX();
         dPadY = (int) controller.getPovY();
@@ -220,14 +224,14 @@ public class HardwareJoystick implements IHardwareJoystick, IJoystick{
      */
     public double getRawAxis(int axisEnum) {
         switch (axisEnum - 1) {
-            case JoystickConstants.LEFT_JOYSTICK_Y:
-                return leftJoystickY;
             case JoystickConstants.LEFT_JOYSTICK_X:
                 return leftJoystickX;
             case JoystickConstants.RIGHT_JOYSTICK_Y:
                 return rightJoystickY;
             case JoystickConstants.RIGHT_JOYSTICK_X:
                 return rightJoystickX;
+            case JoystickConstants.LEFT_JOYSTICK_Y:
+                return leftJoystickY;
             case JoystickConstants.DPAD_Y:
                 return dPadY;
             case JoystickConstants.DPAD_X:

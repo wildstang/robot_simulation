@@ -1,5 +1,8 @@
 package org.wildstang.simulation;
 
+import org.wildstang.joystick.HardwareJoystick;
+import org.wildstang.joystick.IJoystick;
+import org.wildstang.joystick.OnscreenJoystick;
 import org.wildstang.simulation.sensorsimulation.base.SensorSimulationContainer;
 import org.wildstang.simulation.solenoids.SolenoidContainer;
 import org.wildstang.yearly.robot.RobotTemplate;
@@ -73,6 +76,11 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
     DisabledPeriodicTask disabledTask;
     SequentialTaskExecutor practiceModeExecutor;
     static RobotTemplate robot;
+    IJoystick driverJoystick;
+    boolean driverJoystickIsHw;
+    IJoystick manipulatorJoystick;
+    boolean manipulatorJoystickIsHw;
+    
 
     
     public Simulation() {
@@ -151,6 +159,25 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
         modeSwitcher.setLocation(new Point(600, 650));
         modeSwitcher.setVisible(true);
         robot = new RobotTemplate();
+        
+        HardwareJoystick dHardwareJoystick = new HardwareJoystick();
+        if (dHardwareJoystick.initializeJoystick()) {
+            driverJoystick = dHardwareJoystick;
+            driverJoystickIsHw = true;
+        } else {
+            driverJoystick = new OnscreenJoystick(0);
+            driverJoystickIsHw = false;
+        }
+        
+        HardwareJoystick mHardwareJoystick = new HardwareJoystick();
+        if (mHardwareJoystick.initializeJoystick()) {
+            manipulatorJoystick = mHardwareJoystick;
+            manipulatorJoystickIsHw = true;
+        } else {
+            manipulatorJoystick = new OnscreenJoystick(1);
+            manipulatorJoystickIsHw = false;
+        }
+        
     }
 
     public static Simulation getInstance() {
@@ -159,7 +186,31 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
         }
         return instance;
     }
+    
+    public IJoystick getJoystick(int channel)
+    {
+    	if (channel == 0)
+    	{
+    		return driverJoystick;
+    	}
+    	else
+    	{
+    		return manipulatorJoystick;
+    	}
+    }
 
+    public boolean isJoystickHw(int channel)
+    {
+    	if (channel == 1)
+    	{
+    		return driverJoystickIsHw;
+    	}
+    	else
+    	{
+    		return manipulatorJoystickIsHw;
+    	}
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -322,6 +373,8 @@ public class Simulation implements ActionListener, ChangeListener, SequentialTas
         public void run() {
             //any updates that need to run.
             robot.teleopPeriodic();
+            driverJoystick.pullData();
+            manipulatorJoystick.pullData();
             SolenoidContainer.getInstance().update();
             SensorSimulationContainer.getInstance().update();
         }

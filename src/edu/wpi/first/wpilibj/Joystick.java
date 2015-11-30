@@ -7,6 +7,7 @@ package edu.wpi.first.wpilibj;
 import org.wildstang.joystick.IJoystick;
 import org.wildstang.joystick.IHardwareJoystick;
 import org.wildstang.joystick.OnscreenJoystick;
+import org.wildstang.simulation.Simulation;
 import org.wildstang.joystick.HardwareJoystick;
 
 
@@ -16,14 +17,15 @@ public class Joystick {
     boolean isHardwareJoystick;
 
     public Joystick(int channel) {
-        HardwareJoystick hardwareJoystick = new HardwareJoystick();
-        if (hardwareJoystick.initializeJoystick()) {
-            joystick = hardwareJoystick;
-            isHardwareJoystick = true;
-        } else {
-            joystick = new OnscreenJoystick(channel);
-            isHardwareJoystick = false;
-        }
+    	if (channel >= 0 && channel <= 1)
+    	{
+    		joystick = Simulation.getInstance().getJoystick(channel);
+    		isHardwareJoystick = Simulation.getInstance().isJoystickHw(channel);
+    	}
+    	else
+    	{
+    		System.out.println("Joystick channel: " + channel + "is not supported in simulation.");
+    	}
     }
 
     public boolean getRawButton(int but) {

@@ -62,7 +62,19 @@ public class OnscreenJoystick implements KeyListener, IJoystick {
      * @param port The port the Joystick is connected to on the Driver Station.
      */
     public OnscreenJoystick(int port) {
-        frame = new JFrame("Joystick Emulator: " + port);
+    	if (port == 0)
+    	{
+    		frame = new JFrame("Joystick Emulator: Driver(" + port + ")");
+    	}
+    	else if (port == 1)
+    	{
+    		frame = new JFrame("Joystick Emulator: Manipulator (" + port + ")");
+    	}
+    	else
+    	{
+    		frame = new JFrame("Joystick Emulator: " + port);
+    	}
+    	
         if (port == 2) {
             frame.setLocation(820, 0);
         }
@@ -301,4 +313,10 @@ public class OnscreenJoystick implements KeyListener, IJoystick {
         public void keyTyped(KeyEvent e) {
         }
     }
+
+	@Override
+	public void pullData() {
+		// TODO Auto-generated method stub
+		
+	}
 }

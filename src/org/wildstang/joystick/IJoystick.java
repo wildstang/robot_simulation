@@ -70,4 +70,6 @@ public interface IJoystick {
      * @param channel The channel to set the axis to.
      */
     public void setAxisChannel(Joystick.AxisType axis, int channel);
+    
+    public void pullData();
 }

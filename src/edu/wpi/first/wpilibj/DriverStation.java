@@ -11,39 +11,8 @@ package edu.wpi.first.wpilibj;
  * Station.
  */
 public class DriverStation {
-
-    public static class Alliance {
-
-        /**
-         * The integer value representing this enumeration.
-         */
-        public final int value;
-        /**
-         * The Alliance name.
-         */
-        public final String name;
-        public static final int kRed_val = 0;
-        public static final int kBlue_val = 1;
-        public static final int kInvalid_val = 2;
-        /**
-         * alliance: Red
-         */
-        public static final Alliance kRed = new Alliance(kRed_val, "Red");
-        /**
-         * alliance: Blue
-         */
-        public static final Alliance kBlue = new Alliance(kBlue_val, "Blue");
-        /**
-         * alliance: Invalid
-         */
-        public static final Alliance kInvalid = new Alliance(kInvalid_val, "invalid");
-
-        private Alliance(int value, String name) {
-            this.value = value;
-            this.name = name;
-        }
-    } /* Alliance */
-
+	public enum Alliance { Red, Blue, Invalid }
+    
 
     private static DriverStation instance = new DriverStation();
     private int m_digitalOut;
@@ -288,7 +257,7 @@ public class DriverStation {
      * @return the current alliance
      */
     public Alliance getAlliance() {
-        return Alliance.kBlue;
+        return Alliance.Blue;
     }
 
     /**
