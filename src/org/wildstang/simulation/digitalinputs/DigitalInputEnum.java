@@ -40,37 +40,37 @@ public static DigitalInputEnum getEnumFromChannel(int channel)
 {
     switch (channel)
     {
-        case 1:
+        case 0:
             return INPUT1;
-        case 2:
+        case 1:
             return INPUT2;
-        case 3:
+        case 2:
             return INPUT3;
-        case 4:
+        case 3:
             return INPUT4;
-        case 5:
+        case 4:
             return INPUT5;
-        case 6:
+        case 5:
             return INPUT6;
-        case 7:
+        case 6:
             return INPUT7;
-        case 8:
+        case 7:
             return INPUT8;
-        case 9:
+        case 8:
             return INPUT9;
-        case 10:
+        case 9:
             return INPUT10;
-        case 11:
+        case 10:
             return INPUT11;
-        case 12:
+        case 11:
             return INPUT12;
-        case 13:
+        case 12:
             return INPUT13;
-        case 14:
+        case 13:
             return INPUT14;
-        case 15:
+        case 14:
             return INPUT15;
-        case 16:
+        case 15:
             return INPUT16;
         default:
             return null;

@@ -25,15 +25,15 @@ public class DigitalInputContainer implements KeyListener {
     private DigitalInputContainer() {
         inputs = new DigitalInputSimulation[16];
         for (int i = 0; i < 16; i++) {
-            int channel;
+            /*int channel;
             if (i == 0) {
                 channel = 10;
             } else if (i >= 10) {
                 channel = i + 1;
             } else {
                 channel = i;
-            }
-            inputs[i] = new DigitalInputSimulation(channel);
+            } */
+            inputs[i] = new DigitalInputSimulation(i);
         }
         frame = new JFrame("Digital Input Emulator");
         JLabel label = new JLabel("Focus and Press 1-9 to toggle Inputs ");

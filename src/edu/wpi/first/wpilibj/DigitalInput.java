@@ -36,6 +36,8 @@ public class DigitalInput
     private void initDigitalInput(int moduleNumber, int channel)
     {
         mChannel = channel;
+        System.out.println("channel " + channel);
+        System.out.println("input: " + DigitalInputEnum.getEnumFromChannel(channel).toValue());
         input = DigitalInputContainer.getInstance().inputs[DigitalInputEnum.getEnumFromChannel(channel).toValue()];
     }
 
