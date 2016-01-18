@@ -8,10 +8,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/smitty/wpilib/java/current/lib/NetworkTables-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/smitty/wpilib/java/current/lib/NetworkTables.jar"/>
+	<classpathentry kind="lib" path="/Users/smitty/wpilib/java/current/lib/NetworkTables.jar" sourcepath="C:/Users/smitty/wpilib/java/current/lib/NetworkTables-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/smitty/wpilib/java/current/lib/WPILib-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/smitty/wpilib/java/current/lib/WPILib.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/2015-fall-sw-advanced"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Core-Framework"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/2016_robot_software"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
