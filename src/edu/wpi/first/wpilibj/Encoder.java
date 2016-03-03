@@ -30,7 +30,7 @@ public class Encoder {
   public enum IndexingType {
     kResetWhileHigh, kResetWhileLow, kResetOnFallingEdge, kResetOnRisingEdge
   }
-  int count;
+  int count = 0;
 
   
 
@@ -48,7 +48,6 @@ public class Encoder {
    *        positive values.
    */
   public Encoder(final int aChannel, final int bChannel, boolean reverseDirection) {
-   
   }
 
   /**
@@ -237,7 +236,8 @@ public class Encoder {
    * @return Current raw count from the encoder
    */
   public int getRaw() {
-    return 2000;
+     count += 5;
+    return count;
   }
 
   /**
@@ -248,6 +248,7 @@ public class Encoder {
    *         factor.
    */
   public int get() {
+     count += 5;
     return count;
   }
 
